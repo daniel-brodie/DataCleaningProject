@@ -41,6 +41,7 @@
   ##find STD columns
   stdCols <- grep("std()",names(x_all))
   
+  ##extract the MEAN and STD columns 
   output.data <- select(x_all,names(x_all[,meanCols]),names(x_all[,stdCols]),subject,activity)
   output.data <- tbl_df(output.data)
   
@@ -50,11 +51,11 @@
   
   ##output.data is the tidy data set containing the original data
   
-  ##generate the analysis data
+  ##generate the analysis data that is summarized for each mean & standard deviation measurement.
   analysis.data <- melt(output.data,id=c("subject","activity","AD"))
   analysis.data <- group_by(analysis.data,subject,activity,AD,variable) %>% summarise(VarAverage=mean(value))
   
-  write.table(analysis.data,row.names=FALSE,file="analysis.data.txt",append=FALSE)
+  write.table(analysis.data,row.names=FALSE,file="analysis.data.csv",append=FALSE,sep=",")
   
   ##analysis.data is the output data described by associated code book
   analysis.data
