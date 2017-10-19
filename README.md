@@ -1,6 +1,6 @@
 # README file for Data Cleaning Project
 
-##Data Generation
+## Data Generation
 The data was generated using the script contained at run_analysis.R.  See comments in the file.
 
 A summary of the process is presented here.
