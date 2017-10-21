@@ -55,7 +55,7 @@
   analysis.data <- melt(output.data,id=c("subject","activity","AD"))
   analysis.data <- group_by(analysis.data,subject,activity,AD,variable) %>% summarise(VarAverage=mean(value))
   
-  write.table(analysis.data,row.names=FALSE,file="analysis.data.csv",append=FALSE,sep=",")
+  write.table(analysis.data,row.names=FALSE,file="analysis.data.txt",append=FALSE,sep=",")
   
   ##analysis.data is the output data described by associated code book
   analysis.data
